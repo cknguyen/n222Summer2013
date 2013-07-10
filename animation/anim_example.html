@@ -15,12 +15,29 @@
 
 					for( var i = 0; i < data.action.length; i++ ) {
 						firstRow.append("<div class='ele'>" + data.action[i] + "</div>");
+						$(".ele").css("opacity", 0).css("marginTop", 0).css("width", 0).css("height", 0).delay(500 + 500 * i).animate(
+							{
+								opacity: 1,
+								marginTop: 7,
+								width: 100,
+								height: 100
+							},
+							1000
+						)
 
 					}
 
 					for( var i = 0; i < data.comedy.length; i++ ) {
 						secondRow.append("<div class='ele'>" + data.comedy[i] + "</div>");
-
+						$(".ele").css("opacity", 0).css("marginTop", 0).css("width", 0).css("height", 0).delay(500 + 500 * i).animate(
+							{
+								opacity: 1,
+								marginTop: 7,
+								width: 100,
+								height: 100
+							},
+							1000
+						)
 					}
 					
 				})
@@ -32,10 +49,10 @@
 
 					//38 = up
 					//40 = down
-					if(e.which == 38) {
+					if(e.which == 37) {
 						cur_row --;
 						show_row();
-					} else if (e.which == 40) {
+					} else if (e.which == 39) {
 						cur_row ++;
 						show_row();
 					}
@@ -75,12 +92,14 @@
 					var targChildren = targRow.children();
 
 					for(var i = 0; i < targChildren.length; i++) {
-						$(targChildren[i]).css("opacity", 0).css("marginTop", 0).delay(500 + 500 * i).animate(
+						$(targChildren[i]).stop().css("opacity", 0).css("marginTop", 0).css("width", 0).css("height", 0).delay(500 + 500 * i).animate(
 							{
 								opacity: 1,
-								marginTop: 7
+								marginTop: 7,
+								width: 100,
+								height: 100
 							},
-							700
+							1000
 						)
 					}
 
@@ -104,8 +123,8 @@
 
 			.ele {
 				margin: 7px;
-				height: 100px;
-				width: 100px;
+				height: 0px;
+				width: 0px;
 				background: #990000;
 				float: left;
 			}
